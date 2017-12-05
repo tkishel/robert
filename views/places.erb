@@ -1,0 +1,56 @@
+<nav id="application_name"><h1>puppet places</h1></nav>
+
+<!-- Total: <%= @places.count %> -->
+
+<script language='javascript'>
+  function avatar_error(image, type) {
+    image.onerror = '';
+    image.src = "/images/" + type + ".png";
+    return true;
+  }
+</script>
+
+<nav id="things">
+  <header>
+    <input type="search" placeholder="Search">
+  </header>
+  <ul id="places">
+    <% @places.each do |place| %>
+      <li data-id="<%= place['uid'] %>">
+        <img src="http://robby-photo-bucket.s3.amazonaws.com/<%= place['jpegphotofile'] %>" onerror="avatar_error(this, 'place');">
+        <h3><%= place['uid'] %></h3>
+        <h4><%= place['description'] %></h4>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
+<section id="thing">
+  <section class="thing_header">
+    <h1>Name</h1>
+  </section>
+  <dl class="thing_details">
+    <dt>Description</dt>              <dd id="description"></dd>
+    <dt id="dt_last">Description</dt> <dd id="description"></dd>
+  </dl>
+  <section id="location">
+    <span class="edit_controls">
+      <select>
+        <option>BFS</option>
+        <option>LON</option>
+        <option>PDX-5</option>
+        <option>PDX-6</option>
+        <option>PLZ</option>
+        <option>SEA</option>
+        <option>SIN</option>
+        <option>SYD</option>
+        <option>TKO</option>
+        <option>Other</option>
+      </select>
+      <aside>Click on the map to change a room's location</aside>
+    </span>
+    <img src="/images/marker.png" id="marker">
+    <img src="/images/PDX-5.png" id="current_location">
+  </section>
+  <a href="#save" class="save edit_controls">save</a>
+</section>

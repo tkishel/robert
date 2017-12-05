@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>robert</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.7.1/jquery-ui.js"></script>
+<script type="text/javascript" src="/common.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.7.1/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="/common.css">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+<%= javascripts %>
+<%= stylesheets %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<section id="login_modal_dialog" class="overlay">
+  <section>
+    <h1>Log In to Continue</h1>
+    <h2>Username:</h2>  
+    <input type="text">
+    <h2>Password:</h2>
+    <input type="password">
+    <login_button>Log In</login_button>
+  </section>
+</section>
+
+<header id="application_header">
+  <h1><img src="images/logo.png" height="22">robert, but my friends call me robby (:<%= ENV['RACK_ENV'] %>)</h1>
+  <nav>
+    <span class="application_button"><a href="/" class="active">home</a></span>
+    <a href="#toggle_lock">login</a>
+  </nav>
+</header>
+
+<section id="working_dialog">
+  <section>
+    <h1 id="working_dialog_status">Working ...</h1>
+  </section>
+</section>
+
+<section id="saving_dialog">
+  <section>
+    <h1 id="saving_dialog_status">Saving ...</h1>
+  </section>
+</section>
+
+<%= yield %>
+
+</body>
+</html>

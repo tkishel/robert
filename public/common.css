@@ -1,0 +1,504 @@
+@import url("z_reset.css");
+
+body{
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+/* application */
+
+header#application_header {
+  background: #222;
+  padding: 10px;
+  overflow: hidden;
+}
+
+header#application_header h1 {
+  color: #EEEEEE;
+  float: left;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+header#application_header nav {
+  display: block;
+  float: right;
+}
+
+header#application_header nav .application_button a {
+  background: #666666;
+  border-radius: 12px;
+  color: #000000;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 4px 10px 6px 10px;
+  text-decoration: none;
+}
+
+header#application_header nav .application_button a.active {
+  background: #EEEEEE;
+}
+
+header#application_header nav a[href="#toggle_lock"] {
+  background: url(/images/lock_sprite.png) no-repeat top left;
+  display: inline-block;
+  float:right;
+  height: 16px;
+  margin-top: 3px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 16px;
+}
+
+header#application_header nav a[href="#toggle_lock"].unlocked {
+  background-position: -16px 0px;
+}
+
+nav#application_name {
+  display: none;
+}
+
+/* list of things */
+
+nav#things {
+  border-right: 1px solid #AAAAAA;
+  float: left;
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+  
+nav#things header {
+  background: #DDDDDD;
+  border-bottom: 1px solid #CCCCCC;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  -webkit-box-shadow: 0px 0px 8px #000;
+}
+
+nav#things header input[type='search'] {
+  float: right;
+  font-size: 16px;
+  width: 100%;
+}
+    
+nav#things ul {
+  height: 500px;
+  overflow: scroll;
+}
+
+nav#things ul li.header {
+  background: #DDDDDD;
+  border-top: 1px solid #000000;
+  padding: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+nav#things ul li.header.active {
+  background: #DDDDDD;
+}
+
+nav#things ul li {
+  border-bottom: 1px solid #DDDDDD;
+  padding: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+nav#things ul li.active {
+  background: #0077CC;
+}
+
+nav#things ul li.notice {
+  background: #FFCCCC;
+}
+
+nav#things ul li img {
+  border-radius: 3px;
+  float: left;
+  height: 72px;
+  margin-right: 10px;
+  width: 72px;
+  z-index: 0;
+}
+
+nav#things ul li h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+nav#things ul li.active h3 {
+  color: #FFFFFF;
+}
+
+nav#things ul li h4 {
+  color: #777777;
+  font-size: 12px;
+}
+
+nav#things ul li.active h4 {
+  color: #CCCCCC;
+}
+
+nav#things ul li h5 {
+  float:left;
+}
+    
+nav#things ul li h5 a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav#things ul li h5 a:visited {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav#things ul li h5 a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav#things ul li h5 a:active {
+  color: #000000;
+  text-decoration: none;
+}
+    
+nav#things ul li h6 {
+  color: #FFFFFF;
+  float: right;
+  font-size: 12px;
+}
+
+/* thing */
+
+section#thing {
+  display: none;
+  padding: 50px;
+  overflow: scroll;
+}
+
+section#thing.active {
+  display: inline;
+}
+
+section#thing .thing_header {
+  float: left;
+}
+
+section#thing section.thing_header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+section#thing section.thing_header h2 {
+  color: #333333;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+section#thing section.thing_header h3 {
+  color: #777777;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+section#thing dl.thing_details {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  clear: both;
+  overflow: hidden;
+  width: 450px;
+  margin-top: 40px;
+}
+
+section#thing dl.thing_details.wide {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  clear: both;
+  overflow: hidden;
+  width: 1000px;
+  margin-top: 40px;
+}
+
+section#thing dl.thing_details dt {
+  background: #EEEEEE;
+  border-bottom: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+  min-height: 36px;
+  width: 130px;
+}
+
+section#thing dl.thing_details dd {
+  border-bottom: 1px solid #DDDDDD;
+  display: inline-block;
+  float: right;
+  padding: 10px;
+  min-height: 36px;
+  width: 270px;
+}
+
+section#thing dl.thing_details dt.wide {
+  background: #EEEEEE;
+  border-bottom: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+  min-height: 36px;
+  width: 300px;
+}
+
+section#thing dl.thing_details dd.wide {
+  border-bottom: 1px solid #DDDDDD;
+  display: inline-block;
+  float: right;
+  padding: 10px;
+  min-height: 36px;
+  width: 650px;
+}
+    
+section#thing dl.thing_details dt#dt_last, section#thing dl.thing_details dd:last-child {
+  border-bottom: none;
+}
+
+section#thing p {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+section#thing ul {
+  margin-left: 50px;
+  height: 200px;
+  width: 500px;
+  overflow: scroll;
+}
+
+section#thing ul li {
+  border-bottom: 1px solid #DDDDDD;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* images */
+
+section#thing img#avatar {
+  border-radius: 4px;
+  display: inline-block;
+  height: 200px;
+  float: left;
+  width: 200px;
+  margin: 0px 50px 20px 0px;
+}
+
+input#photo_upload {
+  clear:both;
+  display:block;
+}
+
+/* location */
+
+section#location {
+  border: 1px solid #ccc;
+  clear: both;
+  cursor: pointer;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  margin: 40px 0px 20px 0px;
+  width: 600px;  
+}
+
+section#location img#current_location {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+section#location img#marker {
+  position: absolute;
+  left: 300px;
+  top: 150px;
+  z-index: 15;
+}
+
+#location .edit_controls {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 5px;
+  width: 600px;
+  z-index: 99;
+}
+
+#location .edit_controls {
+  display: none;
+}
+
+#location .edit_controls select {
+  float: left;
+}
+
+#location .edit_controls aside {
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-style: italic;
+  margin-left: 20px;
+}
+
+.thing_header .edit_controls aside{
+  display: inline-block;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* save */
+
+a.save.edit_controls {
+  background: #EEEEEE;
+  border-radius: 12px;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 14px;
+  margin-right: 10px;
+  padding: 4px 10px 6px 10px;
+  text-decoration: none;
+}
+
+a.save.edit_controls.active {
+  background: #33AA44;
+}
+
+/* login dialog */
+
+#login_modal_dialog {
+  background: rgba(0,0,0,0.7);
+  display: none;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+}
+
+#login_modal_dialog section {
+  background: #FFFFFF;
+  border-radius: 8px;
+  margin: 100px auto;
+  position: relative;
+  width: 355px;
+  -webkit-box-shadow: 0px 4px 16px #000;
+}
+  
+#login_modal_dialog section h1 {
+  background: #EEEEEE;
+  border-radius: 20px 20px 0px 0px;
+  border-bottom: 1px solid #ccc;
+  color: #333333;
+  font-size: 20px;
+  font-weight: 200;
+  padding: 10px;
+}
+
+#login_modal_dialog section h2 {
+  font-size: 15px;
+  padding: 1px;
+  margin: 5px 0px 5px 10px;
+  font-weight: 200;
+}
+
+#login_modal_dialog section input[type='text'] {
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px 20px 0px 10px;
+  width: 250px;
+}
+
+#login_modal_dialog section input[type='password'] {
+  font-size: 18px;
+  padding: 0px;
+  margin: 0px 20px 0px 10px;
+  width: 250px;
+}
+
+#login_modal_dialog section login_button {
+  background: #777777;
+  border-radius: 4px;
+  border: none;
+  margin: 0px 0px 10px 0px;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 200;
+  padding: 6px 8px;
+}
+
+/* working dialog */
+
+#working_dialog {
+  background: rgba(0,40,80,0.9);
+  display: none;
+  height: 32px;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
+#working_dialog section {
+
+}
+  
+#working_dialog section h1 {
+  color: #EEEEEE;
+  font-size: 28px;
+  font-weight: 200;
+}
+
+#saving_dialog {
+  background: rgba(0,40,80,0.7);
+  color: #fff;
+  display: none;
+  position: fixed;
+  width: 100%;
+  z-index:99;
+  -webkit-box-shadow: 0px 0px 8px #000;
+}
+
+/* saving dialog */
+
+#saving_dialog section h1 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 0px 4px 8px #000;
+  margin: 10px;
+  text-align: center;
+}
+
+/* other */
+
+.monos {
+  border-bottom: 1px solid #DDDDDD;
+  padding: 8px;
+  overflow: hidden;
+  font-family: "Lucida Console", "Monaco", monospace;
+  font-size: 11px;
+}
+
+th, td {
+    padding: 3px;
+}

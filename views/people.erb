@@ -1,0 +1,82 @@
+<nav id="application_name"><h1>puppet people</h1></nav>
+
+<!-- Total: <%= @people.count %> -->
+
+<script language='javascript'>
+  function avatar_error(image, type) {
+    image.onerror = '';
+    image.src = "/images/" + type + ".png";
+    return true;
+  }
+</script>
+
+<nav id="things">
+  <header>
+    <input type="search" placeholder="Search">
+  </header>
+  <ul id="people">
+    <% @people.each do |person| %>
+      <li data-id="<%= person['uid'] %>" data-startdate="<%= person['startdate'] %>" data-manager_dn="<%= person['manager'] %>"">
+        <img src="http://robby-photo-bucket.s3.amazonaws.com/<%= person['jpegphotofile'] %>" onerror="avatar_error(this, 'person');">
+        <h3><%= person['cn'] %></h3>
+        <h4><%= person['title'] %></h4>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
+<section id="thing">
+  <img src="" id="avatar" class="dropzone-previews">
+  <section class="thing_header">
+    <h1>Name</h1>
+    <h2>Title</h2>
+    <span class="edit_controls"><aside>Drop a gif or png to change your photo.</aside></span>
+  </section>
+  <dl class="thing_details">
+    <dt>Nickname</dt>         <dd id="pseudonym"></dd>
+    <dt>Personal Title</dt>   <dd id="personaltitle"></dd>
+    <dt>Email</dt>            <dd id="mail"></dd>
+    <dt>Mobile</dt>           <dd id="mobile"></dd>
+    <dt>Office</dt>           <dd id="office"></dd>
+    <dt>Department</dt>       <dd id="ou"></dd>
+    <dt>Team</dt>             <dd id="orgteam"></dd>
+    <dt>Manager</dt>          <dd id="manager"></dd>
+    <dt>Reports</dt>          <dd id="reports"></dd>
+    <dt>Newer</dt>            <dd id="newer"></dd>
+  </dl>
+  <dl class="thing_details">
+    <dt>GitHub</dt>           <dd id="github"></dd>
+    <dt>Twitter</dt>          <dd id="twiterhandle"></dd>
+    <dt>IRC</dt>              <dd id="ircnickname"></dd>
+  </dl>
+  <dl class="thing_details">
+    <dt>Bribe With</dt>       <dd id="bribemewith"></dd>
+    <dt>Diet</dt>             <dd id="dietaryrestrictions"></dd>
+    <dt>Shirt Size</dt>       <dd id="shirtsize"></dd>
+  </dl>
+  <dl class="thing_details">
+    <dt>Languages</dt>        <dd id="languages"></dd>
+    <dt>Skills</dt>           <dd id="skills"></dd>
+    <dt>Facts</dt>            <dd id="interestingfact"></dd>
+  </dl>
+  <section id="location">
+    <span class="edit_controls">
+      <select>
+        <option>BFS</option>
+        <option>LON</option>
+        <option>PDX-5</option>
+        <option>PDX-6</option>
+        <option>PLZ</option>
+        <option>SEA</option>
+        <option>SIN</option>
+        <option>SYD</option>
+        <option>TKO</option>
+        <option>Other</option>
+      </select>
+      <aside>Click on the map to change your location.</aside>
+    </span>
+    <img src="/images/marker.png" id="marker">
+    <img src="/images/PDX-5.png" id="current_location">
+  </section>
+  <a href="#save" class="save edit_controls">save</a>
+</section>

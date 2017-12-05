@@ -1,0 +1,8 @@
+.DS_Store
+*.sqlite
+*/.DS_Store
+a.rb
+etc/config.rb
+Gemfile.lock
+public/avatars/*
+var/database.sqlite
